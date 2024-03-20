@@ -1,6 +1,11 @@
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
 
+        ''' 
+        recursively divide n /2 until it reaches 1 or it becomes not
+        divisible
+        '''
+
         if n == 1:
             return True
 
