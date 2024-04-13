@@ -1,23 +1,49 @@
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        def dfs(grid, i, j):
-            if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or grid[i][j] == '0':
+        def isBound(grid, r, c):
+            if r < 0 or c < 0:
+                return False
+            if r >= len(grid) or c >= len(grid[0]):
+                return False
+            return True
+
+        def isWater(grid, r, c):
+            if not isBound(grid, r, c):
+                return True
+            if grid[r][c] == "0":
+                return True
+            return False
+
+        def dfs(grid, r,c):
+            if (isWater(grid, r, c)):
                 return
-            grid[i][j] = '0'  # Mark as visited
-            # DFS to adjacent cells
-            dfs(grid, i + 1, j)
-            dfs(grid, i - 1, j)
-            dfs(grid, i, j + 1)
-            dfs(grid, i, j - 1)
+            grid[r][c] = "0"
+            dfs(grid, r - 1, c)
+            dfs(grid, r + 1, c)
+            dfs(grid, r, c - 1)
+            dfs(grid, r, c + 1)
 
-        if not grid:
-            return 0
+        land = 0
+        for r in range(len(grid)):
+            for c in range(len(grid[0])):
+                if not (isWater(grid, r,c)):
+                    land += 1
+                    dfs(grid, r, c)
+        return land
+        # isWater(r, c)
+        #       return grid[r][c] == 0
 
-        num_islands = 0
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if grid[i][j] == '1':
-                    num_islands += 1
-                    dfs(grid, i, j)
+        # isBoundd(r,c)
+        #       if r < numRows and c < numCols
+        #       r >= 0 and c >= 0
+    
+        # dfs(r, c)
+        #.    isBound r, c, not isWater
+        #       destroy r,c -> grid[r][c] = 0
+        #       dfs() ->up, dowm, left, right
 
-        return num_islands
+        # iterate grid
+        #  if land then num += 1, dfs
+        # 
+
+
