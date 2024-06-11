@@ -5,7 +5,6 @@
 #         self.next = next
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        # initialize pointers
         current, prev = head, None
 
         while current:
