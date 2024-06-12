@@ -6,19 +6,14 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        # fast and slow pointer
-        # create a loop
-        # if the fast pointer catches up to the slow pointer then return true
-
-        slow, fast = head, head
+        fast, slow = head, head
 
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-            if slow == fast:
+
+            if fast == slow:
                 return True
+
         return False
-
-
-
-          
+        
