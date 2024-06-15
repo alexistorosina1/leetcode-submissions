@@ -10,7 +10,7 @@ class Solution:
         # reverse the second half of the list
         # merge both lists
 
-        slow, fast = head, head.next
+        slow, fast = head, head
         
         while fast and fast.next:
             slow = slow.next
