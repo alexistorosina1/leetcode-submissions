@@ -5,23 +5,24 @@
 #         self.next = next
 class Solution:
     def reorderList(self, head: Optional[ListNode]) -> None:
-        # find the middle of the list with two pointers
-        # reverse the second part of the list
-        # merge both lists 
+        # find the middle of the list using 2 pointers
+        # reverse the second half of the list
+        # merge first and second halfs in the corresponding order
 
         slow, fast = head, head.next
 
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-        
-        current = slow.next
+
+        second = slow.next
         prev = slow.next = None
-        while current:
-            temp = current.next
-            current.next = prev
-            prev = current
-            current = temp
+
+        while second:
+            temp = second.next
+            second.next = prev
+            prev = second
+            second = temp
         
         first, second = head, prev
         while second:
@@ -29,5 +30,3 @@ class Solution:
             first.next = second
             second.next = tmp1
             first, second = tmp1, tmp2
-
-        
