@@ -18,6 +18,6 @@ class Solution:
         
             node = node.next
 
-        node.next = list1 if list1 else list2
+        node.next = list1 or list2
         return dummy.next
             
