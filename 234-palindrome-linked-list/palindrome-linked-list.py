@@ -5,21 +5,23 @@
 #         self.next = next
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
-        # find middle
+        # find the middle of the list
+
         slow, fast = head, head
+
         while fast and fast.next:
             slow = slow.next
-            fast =fast.next.next
+            fast = fast.next.next
         
-        # reverse second half
+        # reverse the second half of the list
         prev = None
         while slow:
             temp = slow.next
             slow.next = prev
             prev = slow
             slow = temp
-
-        # check for palindrone
+        
+        # merge lists
         left, right = head, prev
         while right:
             if left.val != right.val:
