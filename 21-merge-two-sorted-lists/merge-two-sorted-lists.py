@@ -15,8 +15,6 @@ class Solution:
                 node.next = list2
                 list2 = list2.next
             node = node.next
-        
         node.next = list1 or list2
 
         return dummy.next
-            
