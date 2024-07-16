@@ -1,16 +1,15 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        # place every char of list s into a dictionary
-        # check if char in list t is in list s
-        # return true if so
+        if len(s) != len(t):
+            return False
         
-        hash_s = {}
-        hash_t = {}
+        hashmap_s = {}
+        hashmap_t = {}
 
         for char in s:
-            hash_s[char] = hash_s.get(char, 0) + 1
-
+            hashmap_s[char] = hashmap_s.get(char, 0) + 1
+        
         for char in t:
-            hash_t[char] = hash_t.get(char, 0) + 1
+            hashmap_t[char] = hashmap_t.get(char, 0) + 1
 
-        return hash_s == hash_t 
+        return hashmap_s == hashmap_t
