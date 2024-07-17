@@ -2,7 +2,7 @@ class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False
-        
+
         hashmap_s = {}
         hashmap_t = {}
 
@@ -11,5 +11,7 @@ class Solution:
         
         for char in t:
             hashmap_t[char] = hashmap_t.get(char, 0) + 1
-
+        
         return hashmap_s == hashmap_t
+
+        
