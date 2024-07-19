@@ -6,5 +6,5 @@ class Solution:
             current = arr[i]
             arr[i] = max_right
             max_right = max(current, max_right)
-        
+
         return arr
