@@ -1,9 +1,8 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        num_set = set()
+        hashmap = set()
 
         for num in nums:
-            if num in num_set:
+            if num in hashmap:
                 return True
-            num_set.add(num)
-        return False
+            hashmap.add(num)
