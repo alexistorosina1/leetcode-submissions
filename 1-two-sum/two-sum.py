@@ -1,10 +1,11 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         # create a hashmap
-        # iterate through nums
-        # check if the complement is in nums
-        # return if so, if not add to hash
+        # populate the map as you iterate
+        # check if the complement is already in the hashmap
+        # if so return the complement and the index
 
+    
         hashmap = {}
 
         for i, num in enumerate(nums):
@@ -12,5 +13,5 @@ class Solution:
 
             if complement in hashmap:
                 return [hashmap[complement], i]
-
+            
             hashmap[num] = i
