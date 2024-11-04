@@ -1,17 +1,17 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        # create a hashmap
-        # populate the map as you iterate
-        # check if the complement is already in the hashmap
-        # if so return the complement and the index
+        # create a dictionary that contains num and its index
+        # as we iterate through the array we look for the target nums complement
+        # if complement is not in the dictionary then place it into the dictionary
+        # else return the complement and i
 
-    
-        hashmap = {}
+        nums_dict = {}
 
         for i, num in enumerate(nums):
             complement = target - num
 
-            if complement in hashmap:
-                return [hashmap[complement], i]
-            
-            hashmap[num] = i
+            if complement in nums_dict:
+                return [nums_dict[complement], i]
+
+            nums_dict[num] = i
+        
