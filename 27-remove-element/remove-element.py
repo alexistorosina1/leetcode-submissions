@@ -8,9 +8,11 @@ class Solution:
         # if num val == k 
         # remove num
         # return length + 1
-        ans = []
+        k = 0
+
         for i in nums:
             if i != val:
-                ans.append(i)
-        nums[:] = ans
-        return len(ans)
+                nums[k] = i
+                k += 1
+        
+        return k
