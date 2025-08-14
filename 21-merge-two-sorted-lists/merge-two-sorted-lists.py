@@ -5,19 +5,23 @@
 #         self.next = next
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        # create new empty list 
-        # loop over both lists and compare their values
-        # append the lower value to dummy.next
-        dummy = node = ListNode()
+
+        # iterate through both lists and compare each value
+        # as we compare we add to the output
+
+        dummy = ListNode()
+        tail = dummy
 
         while list1 and list2:
             if list1.val < list2.val:
-                node.next = list1
+                tail.next = list1
                 list1 = list1.next
             else:
-                node.next = list2
+                tail.next = list2
                 list2 = list2.next
-            node = node.next
-        node.next = list1 or list2
-        return dummy.next
+            tail = tail.next
+        tail.next = list1 if list1 else list2
 
+        return dummy.next
+        
+        
