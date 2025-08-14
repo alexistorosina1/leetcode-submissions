@@ -1,25 +1,21 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        # stack
-        # need a map with correspondig closing brackets
-        
+        # ["()"]
         stack = []
-        map = {
+        closing_bracket = {
             ")": "(",
-            "}": "{",
-            "]": "["
+            "]": "[",
+            "}": "{"
         }
 
         for char in s:
-            if char in map:
-                if stack and stack[-1] == map[char]:
+            if char in closing_bracket:
+                if stack and stack[-1] == closing_bracket[char]:
                     stack.pop()
                 else:
                     return False
             else:
                 stack.append(char)
-        
-        return not stack
-
-
-                    
+        return True if not stack else False
+            
+            
