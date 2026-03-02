@@ -9,7 +9,9 @@ class Solution:
                 seen.remove(s[left])
                 left += 1
             seen.add(s[right])
-            window = max(window,right - left + 1)
-        
+            window = max(window, right - left + 1)
+
         return window
+            
+
 
